@@ -1,0 +1,18 @@
+version: '3'
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./data/src:/var/www/html
+      - ./nginx/logs:/var/log/nginx
+    ports:
+      - '8080:80'
+    depends_on:
+      - php
+  php:
+    build: ./php
+    env_file:
+      - ./data/config/.env.development
+    volumes:
+      - ./data/src:/var/www/html
+      - ./php/config/php.ini-development:/usr/local/etc/php/conf.d/php.ini
