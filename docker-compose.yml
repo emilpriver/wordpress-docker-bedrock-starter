@@ -3,16 +3,12 @@ services:
   nginx:
     build: ./nginx
     volumes:
-      - ./data/src:/var/www/html
-      - ./nginx/logs:/var/log/nginx
+      - ./website/bedrock:/var/www/html
     ports:
       - '8080:80'
     depends_on:
       - php
   php:
-    build: ./php
-    env_file:
-      - ./data/config/.env.development
+    image: php:7.3.6-fpm-alpine3.9
     volumes:
-      - ./data/src:/var/www/html
-      - ./php/config/php.ini-development:/usr/local/etc/php/conf.d/php.ini
+      - ./website/bedrock:/var/www/html
