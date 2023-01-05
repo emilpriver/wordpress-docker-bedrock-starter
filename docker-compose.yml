@@ -10,7 +10,7 @@ services:
       - php
       - mariadb
   php:
-    image: php:8.0.24-fpm-alpine3.16
+    build: ./website
     env_file: ./website/env/.env.dev
     volumes:
       - ./website/bedrock:/var/www/html
