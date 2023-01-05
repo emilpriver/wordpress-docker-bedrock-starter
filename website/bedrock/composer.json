@@ -41,7 +41,7 @@
     "composer/installers": "^1.4",
     "vlucas/phpdotenv": "^3.4.0",
     "oscarotero/env": "^1.2.0",
-    "roots/wordpress": "6.0.2",
+    "roots/wordpress": "6.1.1",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0"
   },
