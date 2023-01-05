@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./website/bedrock:/var/www/html
+    ports:
+      - '8080:80'
+    depends_on:
+      - php
+  php:
+    image: php:7.3.6-fpm-alpine3.9
+    volumes:
+      - ./website/bedrock:/var/www/html

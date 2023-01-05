@@ -8,7 +8,26 @@ services:
       - '8080:80'
     depends_on:
       - php
+      - mariadb
   php:
-    image: php:7.3.6-fpm-alpine3.9
+    build: ./website
+    env_file: ./website/env/.env.dev
     volumes:
       - ./website/bedrock:/var/www/html
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: mariadb
+      MARIADB_DATABASE: mariadb
+      MARIADB_USER: mariadb
+    ports:
+      - 3306:3306
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8000:8080
+    depends_on:
+      - mariadb
+

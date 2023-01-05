@@ -24,7 +24,11 @@
     "forum": "https://discourse.roots.io/category/bedrock"
   },
   "config": {
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "roots/wordpress-core-installer": true,
+      "composer/installers": true
+    }
   },
   "repositories": [
     {
@@ -37,7 +41,7 @@
     "composer/installers": "^1.4",
     "vlucas/phpdotenv": "^3.4.0",
     "oscarotero/env": "^1.2.0",
-    "roots/wordpress": "5.2.2",
+    "roots/wordpress": "6.1.1",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0"
   },
